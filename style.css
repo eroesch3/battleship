@@ -52,7 +52,13 @@ body {
     font-weight: bold;
   }
 
-  
+  .shot{
+    background-color: #DEA01E;
+    font: red; 
+  }
+
+
+
   /* .rowhead{ 
     text-align: left;
     border: 1px solid black; */
