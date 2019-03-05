@@ -1,45 +1,64 @@
 
+/*
 
-
-
+// XXX THIS SECTION ADDS EVENT LISTENERS TO THE GRID AND CHANGES CLASS TO TEMP "SHOT"  
+// XXX NEXT STEP HERE IS TO PUT INTO FUNCTION THAT CAN BE CALLED FOR EACH TYPE OF SHIP
 const block = document.querySelectorAll('div')
 // console.log(block);
-
-
 // function setPosition(ship){
 for(let i = 21; i < block.length; i++) {
     block[i].addEventListener('click', function(event){
         console.log(event)
         block[i].classList.add("shot");
+        // block[i].ship = "B";
     })
 }
-
+*/
 // }
 
 
+const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let ship = ["none"]
+let inShot = ["none"]
+let playerGrid  = []
+// let player1Card = null
+// let player2Card = null
+// let cardsInPlay = []
 
 
-// block.addEventListener('click', function(event){
-//     block.classList.add("shot");
-//   }); 
+const buildGrid = function() {    
+    for (let i = 0; i < columns.length; i++) {
+      for (let n = 0; n < rows.length; n++)
+      for (let y = 0; y < ship.length; y++)
+      for (let x = 0; x < inShot.length; x++) {
+          playerGrid.push({column: columns[i], row: rows[n], ship: ship[y], inShot: inShot[x], })
+      }      
+    }      
+  }  
 
 
-// const block = document.querySelectorAll('div')
-
-// for(let i = 21; i < block.length; i++) {
-//     block[i].addEventListener('click', function(event){
-//         console.log(event)
-//         block.classList.add("shot");
-//         // block.style.backgroundColor = "red";
-//     })
-// }
-
-
-// 
+// XXXX DELETE THIS IF ABOVE WORKS......
+// const buildGrid = function() {    
+//     for (let i = 0; i < columns.length; i++) {
+//       for (let x = 0; x < rows.length; x++) {
+//           playerGrid.push({column: columns[i], row: rows[x]})
+//       }      
+//     }      
+//   }
+// XXXX DELETE TO HERE
 
 
+  buildGrid();
+  console.log(playerGrid);
 
 
+
+
+
+
+
+// XXX STARTED TO ADAPT THIS CODE TO BE THE WHILE LOOP SURROUNDING THE GAME AND SWITCH STATEMENT BTWN ALL THE DIFFERENT SHIPS
 // let player = undefined;
 
 // player = prompt("Would you like to play Battleship?  Please answer 'yes' if so");
