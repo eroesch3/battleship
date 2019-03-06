@@ -10,13 +10,13 @@ let cardsInPlay = []
 
 const buildDeck = function() {    
     for (let i = 0; i < values.length; i++) {
-      for (let n = 0; n < suits.length; n++)
-      for (let y = 0; y < ship.length; y++)
-      for (let x = 0; x < inShot.length; x++) {
-          deck.push({value: values[i], suit: suits[n], ship: ship[y], inShot: inShot[x], })
+      for (let n = 0; n < suits.length; n++) {
+          deck.push({value: values[i], suit: suits[n] })
       }      
     }      
   }  
+
+
 
   buildDeck();
   console.log(deck);
@@ -24,7 +24,7 @@ const buildDeck = function() {
   // Hint: You will be building a `deck` using `values` and `suits`. This may involve a loop within a loop...
   // What is the best data structure to hold the following: 2/Aces, 10/Hearts, Jack/Diamonds, etc.
 
-/*
+
 
   const dealCardsToPlayers = function() {
     let a = ((Math.floor(Math.random() * 53))-1);
@@ -50,6 +50,10 @@ const cardToRank = function(card) {
 }
 
 
+console.log(cardToRank()+"this card");
+
+
+/*
 const announceWinner = function() {
     if (cardToRank(cardsInPlay[0][0].value) > cardToRank(cardsInPlay[1][0].value)) {
         console.log("Player 1 wins!");
@@ -78,5 +82,4 @@ playGame()
 
 
 */
-
 

@@ -19,8 +19,8 @@ for(let i = 21; i < block.length; i++) {
 
 const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let ship = ["none"]
-let inShot = ["none"]
+let ship = [false]
+let inShot = [false]
 let playerGrid  = []
 // let player1Card = null
 // let player2Card = null
@@ -37,6 +37,14 @@ const buildGrid = function() {
     }      
   }  
 
+const addKeyId = function() {
+    for(let i = 0; i < playerGrid.length; i++) {
+        playerGrid[i].id = playerGrid[i].column + playerGrid[i].row;
+        }
+    }
+
+
+
 
 // XXXX DELETE THIS IF ABOVE WORKS......
 // const buildGrid = function() {    
@@ -50,6 +58,7 @@ const buildGrid = function() {
 
 
   buildGrid();
+  addKeyId();
   console.log(playerGrid);
 
 
