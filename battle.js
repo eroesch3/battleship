@@ -76,18 +76,20 @@ const addKeyId = function() {
   console.log(playerGrid);
 
 
-  const buildPlayerTargets = function() {
+  const buildTargetArray = function(y) {
     for(let n = 0; n < playerGrid.length; n++) {
-        playerTargets.push(playerGrid[n].id);
+        y.push(playerGrid[n].id);
         // console.log(playerGrid[n].id);
             // console.log('id: ', event.target.id)
             // console.log(event)
            }
         }
     
-    buildPlayerTargets();
-    console.log(playerTargets);
+    buildTargetArray(playerTargets);
+    console.log('playerTargets' + playerTargets);
     
+    buildTargetArray(pcTargets);
+    console.log('pcTargets' + playerTargets);
 
 
 
