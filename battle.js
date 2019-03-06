@@ -11,10 +11,19 @@ let playerTargets = []
 let playerShots = []
 let pcTargets = []
 let pcShots = []
+let pcLastFourShots = [0, 0, 0, 0]
+let outIndexVal = 0
 // let playerCarrier = []
 // let playerDestroyer = []
 
 
+
+let convertToIndex = function(inputID) {
+    // let outIndexVal = playerGrid.findIndex(inputID[0]) * 10 +   
+    let outIndexVal = columns.indexOf(inputID[0]) * 10 +
+    parseInt(inputID[1]) -1
+    return outIndexVal
+};
 
 
 
@@ -28,13 +37,7 @@ let pcShots = []
 // console.log(block);
 
 
-//XXX ED MAYBE ADD SETINTERVAL... PERHAPS NOT REFRESHING FAST ENOUGH TO CAPTURE EACH CLICK
 
-// function setPosition(ship){
-
-// setInterval(function(){
-//     moveDuck(duck)
-//     }, 1000)
 
 const block = document.querySelectorAll('div')
 for(let i = 21; i < block.length; i++) {
@@ -76,6 +79,21 @@ const addKeyId = function() {
   console.log(playerGrid);
 
 
+
+  console.log(convertToIndex("D3"));
+
+
+
+//   XXXX  ED RETURN THIS TO ACTIVE CODE AFTER CHECKING CONVERT TO INDEX  4:35PM WED
+//   let r = playerBattleShip.findIndex(shotloc)
+
+
+
+
+
+
+/*
+
   const buildTargetArray = function(y) {
     for(let n = 0; n < playerGrid.length; n++) {
         y.push(playerGrid[n].id);
@@ -93,6 +111,58 @@ const addKeyId = function() {
 
 
 
+
+
+    const registerShot = function(shotLoc) {
+        pcShots.push(shotLoc);
+        pcTargets.pop(shotLoc);
+        if (playerBattleShip.findIndex(shotloc) = -1 ) {
+            pcLastFourShots.push(0)
+            // XXX ED ADD OTHER THINGS TO DO WHEN PC MISSES LIKE PUT AN X
+        } else {
+            pcLastFourShots.push(1);
+            // XXX ED CHANGE BACKGROUND COLOR TO RED AND MAYBE PUT X TOO SHOWING SHOT REC'D
+            };
+        };
+        
+
+        switch(pcLastFourShots) {   
+
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 0 && pcLastFourShots[3] === 0:
+
+        let newShot = pcTargets[floor(math.random()*pcTargets.length)];
+
+        registerShot(newShot);
+        
+        // console.log(newShot);
+        // console.log(pcLastFourShots);
+
+            break;
+
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 0 && pcLastFourShots[3] === 1:
+
+        let newShot = pcShots[pcShots.length];
+
+
+            break;
+
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
+
+        
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 1 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 0:
+
+
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 1 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
+
+
+        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
+
+
+
+    };
+//XXX ED MAKE IT PUSH 0 OR 1 FOR MISS OR HITpcLastFourShots.push(loc);
+
+    
 
 
 
