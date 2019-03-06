@@ -1,31 +1,63 @@
 
-/*
-
-// XXX THIS SECTION ADDS EVENT LISTENERS TO THE GRID AND CHANGES CLASS TO TEMP "SHOT"  
-// XXX NEXT STEP HERE IS TO PUT INTO FUNCTION THAT CAN BE CALLED FOR EACH TYPE OF SHIP
-const block = document.querySelectorAll('div')
-// console.log(block);
-// function setPosition(ship){
-for(let i = 21; i < block.length; i++) {
-    block[i].addEventListener('click', function(event){
-        console.log(event)
-        block[i].classList.add("shot");
-        // block[i].ship = "B";
-    })
-}
-*/
-// }
 
 
+
+
+
+
+
+
+let cellClicked = null;
 const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let ship = [false]
 let inShot = [false]
 let playerGrid  = []
-// let player1Card = null
-// let player2Card = null
-// let cardsInPlay = []
+// let playerCarrier = []
+// let playerBattleship = []
+// let playerDestroyer = []
 
+
+
+// XXX THIS SECTION ADDS EVENT LISTENERS TO THE GRID AND CHANGES CLASS TO TEMP "SHOT"  
+// XXX NEXT STEP HERE IS TO PUT INTO FUNCTION THAT CAN BE CALLED FOR EACH TYPE OF SHIP
+// console.log(block);
+// function setPosition(ship){
+
+const block = document.querySelectorAll('div')
+// console.log(block);
+
+
+// function setPosition(ship){
+for(let i = 21; i < block.length; i++) {
+    block[i].addEventListener('click', function(event){
+        // console.log(event);
+        block[i].classList.add("shot");
+        cellClicked = event.target.id;
+        console.log(cellClicked);
+    })
+}
+
+/*
+
+
+
+const block = document.querySelectorAll('div')
+for(let i = 21; i < block.length; i++) {
+    block[i].addEventListener('click', function(event){
+        // console.log(event)
+        // let cellClicked = block[i].target.id;
+        block[i].classList.add("shot");    //THIS WORKED CHANGING CLASS AND THEREFORE BACKGROUND COLOR
+        // block[i].ship = "B";
+    })
+}
+console.log(cellClicked);
+
+
+
+// }
+
+/*  XXXXXXXXXXX 8:42PM COMMENTED OUT
 
 const buildGrid = function() {    
     for (let i = 0; i < columns.length; i++) {
@@ -46,15 +78,6 @@ const addKeyId = function() {
 
 
 
-// XXXX DELETE THIS IF ABOVE WORKS......
-// const buildGrid = function() {    
-//     for (let i = 0; i < columns.length; i++) {
-//       for (let x = 0; x < rows.length; x++) {
-//           playerGrid.push({column: columns[i], row: rows[x]})
-//       }      
-//     }      
-//   }
-// XXXX DELETE TO HERE
 
 
   buildGrid();
