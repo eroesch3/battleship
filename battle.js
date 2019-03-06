@@ -6,8 +6,16 @@ let ship = [false]
 let inShot = [false]
 let playerGrid  = []
 let playerBattleShip = []
+let pcBattleShip = []
+let playerTargets = []
+let playerShots = []
+let pcTargets = []
+let pcShots = []
 // let playerCarrier = []
 // let playerDestroyer = []
+
+
+
 
 
 
@@ -16,7 +24,7 @@ let playerBattleShip = []
 // console.log(block);
 // function setPosition(ship){
 
-const block = document.querySelectorAll('div')
+
 // console.log(block);
 
 
@@ -28,40 +36,19 @@ const block = document.querySelectorAll('div')
 //     moveDuck(duck)
 //     }, 1000)
 
-
+const block = document.querySelectorAll('div')
 for(let i = 21; i < block.length; i++) {
     block[i].addEventListener('click', function(event){
         // console.log(event);
-        block[i].classList.add("shot");
+        block[i].classList.add("ship");
         // console.log('id: ', event.target.id)
         // console.log(event)
         cellClicked = event.target.id;
         playerBattleShip.push(cellClicked);
-        console.log(battleShip);
+        console.log(playerBattleShip);
     })
 }
 
-
-/*
-
-
-
-const block = document.querySelectorAll('div')
-for(let i = 21; i < block.length; i++) {
-    block[i].addEventListener('click', function(event){
-        // console.log(event)
-        // let cellClicked = block[i].target.id;
-        block[i].classList.add("shot");    //THIS WORKED CHANGING CLASS AND THEREFORE BACKGROUND COLOR
-        // block[i].ship = "B";
-    })
-}
-console.log(cellClicked);
-
-
-
-// }
-
-/*  XXXXXXXXXXX 8:42PM COMMENTED OUT
 
 const buildGrid = function() {    
     for (let i = 0; i < columns.length; i++) {
@@ -87,6 +74,22 @@ const addKeyId = function() {
   buildGrid();
   addKeyId();
   console.log(playerGrid);
+
+
+  const buildPlayerTargets = function() {
+    for(let n = 0; n < playerGrid.length; n++) {
+        playerTargets.push(playerGrid[n].id);
+        // console.log(playerGrid[n].id);
+            // console.log('id: ', event.target.id)
+            // console.log(event)
+           }
+        }
+    
+    buildPlayerTargets();
+    console.log(playerTargets);
+    
+
+
 
 
 
