@@ -13,6 +13,7 @@ const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let ship = [false]
 let inShot = [false]
 let playerGrid  = []
+let battleShip = []
 // let playerCarrier = []
 // let playerBattleship = []
 // let playerDestroyer = []
@@ -28,13 +29,16 @@ const block = document.querySelectorAll('div')
 // console.log(block);
 
 
+//XXX ED MAYBE ADD SETINTERVAL... PERHAPS NOT REFRESHING FAST ENOUGH TO CAPTURE EACH CLICK
+
 // function setPosition(ship){
 for(let i = 21; i < block.length; i++) {
     block[i].addEventListener('click', function(event){
         // console.log(event);
         block[i].classList.add("shot");
         cellClicked = event.target.id;
-        console.log(cellClicked);
+        battleShip.push(cellClicked);
+        console.log(battleShip);
     })
 }
 
