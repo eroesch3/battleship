@@ -1,21 +1,12 @@
 
-
-
-
-
-
-
-
-
 let cellClicked = null;
 const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 const rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let ship = [false]
 let inShot = [false]
 let playerGrid  = []
-let battleShip = []
+let playerBattleShip = []
 // let playerCarrier = []
-// let playerBattleship = []
 // let playerDestroyer = []
 
 
@@ -32,15 +23,24 @@ const block = document.querySelectorAll('div')
 //XXX ED MAYBE ADD SETINTERVAL... PERHAPS NOT REFRESHING FAST ENOUGH TO CAPTURE EACH CLICK
 
 // function setPosition(ship){
+
+// setInterval(function(){
+//     moveDuck(duck)
+//     }, 1000)
+
+
 for(let i = 21; i < block.length; i++) {
     block[i].addEventListener('click', function(event){
         // console.log(event);
         block[i].classList.add("shot");
+        // console.log('id: ', event.target.id)
+        // console.log(event)
         cellClicked = event.target.id;
-        battleShip.push(cellClicked);
+        playerBattleShip.push(cellClicked);
         console.log(battleShip);
     })
 }
+
 
 /*
 
