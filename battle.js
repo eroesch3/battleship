@@ -14,6 +14,8 @@ let pcShots = []
 let pcLastFourShots = [0, 0, 0, 0, 0]
 let outIndexVal = 0
 let pcNewShot = null
+// let pcBattleShipOrigin = 0
+// let pcBattleShipDirection = 0
 // let playerCarrier = []
 // let playerDestroyer = []
 
@@ -207,18 +209,68 @@ const addKeyId = function() {
     };
 };
 
-
-buildGrid();
-addKeyId();
-console.log(playerGrid);
-console.log(convertToIndex("D3"));
+    //             if (clue === 'yes') {
 
 
-buildTargetArray(playerTargets);
-    console.log('playerTargets' + playerTargets);
-    
-buildTargetArray(pcTargets);
-console.log('pcTargets' + playerTargets);
+        buildGrid();
+        addKeyId();
+        console.log(playerGrid);
+        console.log(convertToIndex("D3"));
+        
+        
+        buildTargetArray(playerTargets);
+            console.log('playerTargets' + playerTargets);
+            
+        buildTargetArray(pcTargets);
+        console.log('pcTargets' + playerTargets);
+
+
+
+    let pcBattleShipOrigin = parseInt(Math.floor(Math.random()*70));     //Math.floor(Math.random())*70);
+    let pcBattleShipDirection = parseInt(Math.floor(Math.random()*1));   //parseInt(Math.floor(Math.random())*1)
+
+    console.log(pcBattleShipOrigin);
+    console.log(pcBattleShipDirection);
+    console.log(playerGrid[pcBattleShipOrigin].id);
+
+
+const buildPcBattleShip = function() {
+    pcBattleShip.push(playerGrid[pcBattleShipOrigin].id)
+    pcBattleShip.push(playerGrid[pcBattleShipOrigin+1].id)
+    pcBattleShip.push(playerGrid[pcBattleShipOrigin+2].id)
+    pcBattleShip.push(playerGrid[pcBattleShipOrigin+3].id)
+    return pcBattleShip;
+
+}
+
+
+buildPcBattleShip();
+console.log(pcBattleShip);
+
+
+    /*
+
+const buildPcBattleShip = function() {
+        // If (pcBattleShipDirection === 0) {
+        pcBattleShip.push(playerGrid[pcBattleShipOrigin].id),
+        pcBattleShip.push(playerGrid[pcBattleShipOrigin+1].id),
+        pcBattleShip.push(playerGrid[pcBattleShipOrigin+2].id),
+        pcBattleShip.push(playerGrid[pcBattleShipOrigin+3].id),
+    //     } else {
+    //     pcBattleShip.push(playerGrid[pcBattleShipOrigin].id),
+    //     pcBattleShip.push(playerGrid[pcBattleShipOrigin+10].id),
+    //     pcBattleShip.push(playerGrid[pcBattleShipOrigin+20].id),
+    //     pcBattleShip.push(playerGrid[pcBattleShipOrigin+30].id),
+    // };
+};
+ 
+*/  // XXXXX ED RETURN HERE AND UNCOMMENT AFTER CONSOLE.LOG TESTS  THURS 10:24AM
+
+
+
+// buildPcBattleShip();
+
+
 
 
 pcTakeShot()
