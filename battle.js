@@ -28,16 +28,9 @@ const convertToIndex = function(inputID) {
 };
 
 
+// XXX 10:44 TOOK const allCells = document.querySelectorAll from here
 
-const block = document.querySelectorAll('div')
-for(let i = 21; i < block.length; i++) {
-    block[i].addEventListener('click', function(event){
-        block[i].classList.add("ship");
-        cellClicked = event.target.id;
-        playerBattleShip.push(cellClicked);
-        console.log(playerBattleShip);
-    })
-}
+
 
 
 const buildGrid = function() {    
@@ -240,12 +233,49 @@ const buildPcBattleShip = function() {
     pcBattleShip.push(playerGrid[pcBattleShipOrigin+2].id)
     pcBattleShip.push(playerGrid[pcBattleShipOrigin+3].id)
     return pcBattleShip;
+}
+
+// XXXXXXXXXXXXXXXX  10:41AM THURS
+
+
+const listenersToGrid = function()  {
+    const allCells = document.querySelectorAll('div')
+    for(let i = 21; i < allCells.length; i++) {
+        allCells[i].addEventListener('click', function(event){
+            allCells[i].classList.add("ship");
+            cellClicked = event.target.id;
+            playerBattleShip.push(cellClicked);
+            console.log(playerBattleShip);
+            })   
+        }
+        return playerBattleShip;
+    };
+
+const buildPlayerBattleShip = function() {
+    alert("Please click on 4 consecutive cells (vertically or horizontally) to set your Battleship position");
+    listenersToGrid();
+    // playerBattleShip.push(.id)
+    // playerBattleShip.push(playerGrid[pcBattleShipOrigin+1].id)
+    // playerBattleShip.push(playerGrid[pcBattleShipOrigin+2].id)
+    // playerBattleShip.push(playerGrid[pcBattleShipOrigin+3].id)
+    
+    // if ()
+    
+    return playerBattleShip;
 
 }
 
 
+
+
 buildPcBattleShip();
 console.log(pcBattleShip);
+
+buildPlayerBattleShip();
+console.log(playerBattleShip);
+
+
+
 
 
     /*
@@ -264,7 +294,7 @@ const buildPcBattleShip = function() {
     // };
 };
  
-*/  // XXXXX ED RETURN HERE AND UNCOMMENT AFTER CONSOLE.LOG TESTS  THURS 10:24AM
+*/  // XXXXX ED RETURN HERE AND BORROW IF THEN STRUCTURE IF TIME PERMITS  THURS 10:41AM
 
 
 
