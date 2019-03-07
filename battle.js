@@ -11,7 +11,7 @@ let playerTargets = []
 let playerShots = []
 let pcTargets = []
 let pcShots = []
-let pcLastFourShots = [0, 0, 0, 0]
+let pcLastFourShots = [0, 0, 0, 0, 0]
 let outIndexVal = 0
 // let playerCarrier = []
 // let playerDestroyer = []
@@ -19,7 +19,6 @@ let outIndexVal = 0
 
 
 let convertToIndex = function(inputID) {
-    // let outIndexVal = playerGrid.findIndex(inputID[0]) * 10 +   
     let outIndexVal = columns.indexOf(inputID[0]) * 10 +
     parseInt(inputID[1]) -1
     return outIndexVal
@@ -27,25 +26,10 @@ let convertToIndex = function(inputID) {
 
 
 
-
-// XXX THIS SECTION ADDS EVENT LISTENERS TO THE GRID AND CHANGES CLASS TO TEMP "SHOT"  
-// XXX NEXT STEP HERE IS TO PUT INTO FUNCTION THAT CAN BE CALLED FOR EACH TYPE OF SHIP
-// console.log(block);
-// function setPosition(ship){
-
-
-// console.log(block);
-
-
-
-
 const block = document.querySelectorAll('div')
 for(let i = 21; i < block.length; i++) {
     block[i].addEventListener('click', function(event){
-        // console.log(event);
         block[i].classList.add("ship");
-        // console.log('id: ', event.target.id)
-        // console.log(event)
         cellClicked = event.target.id;
         playerBattleShip.push(cellClicked);
         console.log(playerBattleShip);
@@ -70,36 +54,20 @@ const addKeyId = function() {
     }
 
 
-
-
-
-
   buildGrid();
   addKeyId();
   console.log(playerGrid);
-
-
-
   console.log(convertToIndex("D3"));
 
 
-
-//   XXXX  ED RETURN THIS TO ACTIVE CODE AFTER CHECKING CONVERT TO INDEX  4:35PM WED
+// XXXX ED NEED TO PROBABLY ELIMINATE BELOW LINE
 //   let r = playerBattleShip.findIndex(shotloc)
 
 
 
-
-
-
-/*
-
   const buildTargetArray = function(y) {
     for(let n = 0; n < playerGrid.length; n++) {
         y.push(playerGrid[n].id);
-        // console.log(playerGrid[n].id);
-            // console.log('id: ', event.target.id)
-            // console.log(event)
            }
         }
     
@@ -111,55 +79,144 @@ const addKeyId = function() {
 
 
 
-
-
     const registerShot = function(shotLoc) {
         pcShots.push(shotLoc);
         pcTargets.pop(shotLoc);
-        if (playerBattleShip.findIndex(shotloc) = -1 ) {
-            pcLastFourShots.push(0)
+        if (playerBattleShip.indexOf(shotloc) = -1 ) {
+            pcLastFourShots.push(0);
+            alert("You're shot missed!")
             // XXX ED ADD OTHER THINGS TO DO WHEN PC MISSES LIKE PUT AN X
         } else {
             pcLastFourShots.push(1);
+            alert("You're shot hit a target!")
             // XXX ED CHANGE BACKGROUND COLOR TO RED AND MAYBE PUT X TOO SHOWING SHOT REC'D
             };
         };
         
-
+    const pcTakeShot = function() {    
         switch(pcLastFourShots) {   
-
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 0 && pcLastFourShots[3] === 0:
-
-        let newShot = pcTargets[floor(math.random()*pcTargets.length)];
-
-        registerShot(newShot);
-        
-        // console.log(newShot);
-        // console.log(pcLastFourShots);
-
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = pcTargets[floor(math.random()*pcTargets.length)];
+            registerShot(pcNewShot);
             break;
 
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 0 && pcLastFourShots[3] === 1:
-
-        let newShot = pcShots[pcShots.length];
-
-
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) -1].id;       
+            registerShot(pcNewShot);
             break;
 
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
-
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) -1].id;
+            registerShot(pcNewShot);
+            break;
         
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 1 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 0:
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) -1].id;
+            registerShot(pcNewShot);
+            break;
 
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 1 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-4]) +1].id;
+            registerShot(pcNewShot);
+            break;
 
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 1 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-3]) +1].id;
+            registerShot(pcNewShot);
+            break;
 
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 1 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+                let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) +1].id;
+                registerShot(pcNewShot);
+                break;    
 
-        case pcLastFourShots[0] === 0 && pcLastFourShots[1] === 0 && pcLastFourShots[2] === 1 && pcLastFourShots[3] === 1:
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) -1].id;    
+            registerShot(pcNewShot);
+            break;
 
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-2]) +1].id;
+            registerShot(pcNewShot);
+            break;
 
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && 
+        pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-3]) +10].id;    
+            registerShot(pcNewShot);
+            break;
+            
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && 
+        pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 1 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) +1].id;    
+            registerShot(pcNewShot);
+            break;
 
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && 
+        pcLastFourShots[pcLastFourShots.length -4] === 1 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) +1].id;    
+            registerShot(pcNewShot);
+            break;    
+
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && 
+        pcLastFourShots[pcLastFourShots.length -4] === 1 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) +10].id;
+            registerShot(pcNewShot);
+            break;    
+
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 0 && 
+        pcLastFourShots[pcLastFourShots.length -4] === 1 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-4]) -10].id;
+            registerShot(pcNewShot);
+            break;
+            
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 1 &&
+        pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 0:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-2]) -10].id;
+            registerShot(pcNewShot);
+            break;   
+
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 1 &&
+        pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 0 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) -10].id;
+            registerShot(pcNewShot);
+            break;
+
+        case 
+        pcLastFourShots[pcLastFourShots.length -5] === 1 &&
+        pcLastFourShots[pcLastFourShots.length -4] === 0 && pcLastFourShots[pcLastFourShots.length -3] === 0 && pcLastFourShots[pcLastFourShots.length -2] === 1 && pcLastFourShots[pcLastFourShots.length -1] === 1:
+            let pcNewShot = playerGrid[convertToIndex(pcShots[pcShots.length-1]) +10].id;
+            registerShot(pcNewShot);
+            break;
+
+        default:    
+            let pcNewShot = pcTargets[floor(math.random()*pcTargets.length)];
+            registerShot(pcNewShot);
+            break;
     };
+};
+
+
+
+
+
+
 //XXX ED MAKE IT PUSH 0 OR 1 FOR MISS OR HITpcLastFourShots.push(loc);
 
     
