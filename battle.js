@@ -320,9 +320,13 @@ function playerTakeShot() {
     playerNewShot = prompt("Please enter the cell you want to fire on, column followed by row (e.g. C4)")
             console.log(playerNewShot)
             z = playerTargets.indexOf(playerNewShot)
-            console.log(z)
+            // console.log(z)
             if (z === -1) {
-            alert("This cell was already played or not on our grid, please select again")
+            alert("We don't recognize this response. The cell may have already been played or is not on our grid, please press 'Play' to resume & select again")
+            resumeButton.addEventListener('click', () => {
+                playGame()
+            })
+            
             playGame();
         }   else {
             registerPlayerShot(playerNewShot)
@@ -343,7 +347,7 @@ function playerTakeShot() {
 
 
 
-
+alert("Your BattleShip was already deployed, Commander.  Please see screen below and press 'Play Battleship' to play game")
 
 
 
