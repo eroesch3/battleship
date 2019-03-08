@@ -4,7 +4,9 @@
 body {
     background-color:#133554;
     font-family: 'Lora', serif;
-    color: black
+    color: black;
+    text-align: center;
+
   }
   
   .container {
@@ -53,6 +55,10 @@ body {
     display: none;
   }
 
+  #play {
+    height: 50px;
+    width: 100px;
+  }
 
   h3{
     font-size: 26px;
