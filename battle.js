@@ -256,8 +256,46 @@ function buildPlayerBattleShip() {
     playerBattleShip.push(playerGrid[playerBattleShipOrigin + 1].id)
     playerBattleShip.push(playerGrid[playerBattleShipOrigin + 2].id)
     playerBattleShip.push(playerGrid[playerBattleShipOrigin + 3].id)
+    
+    // for(let s = 0; s < playerBattleShip.length; s++) {
+    //     allCells[i].addEventListener('click', function(event){
+    //         allCells[i].classList.add("ship");                  
+    //         cellClicked = event.target.id;                      
+    //         playerBattleShip.push(cellClicked);
+    //     }
+    document.getElementById(playerBattleShip[0]).classList.add("ship");
+    document.getElementById(playerBattleShip[1]).classList.add("ship");
+    document.getElementById(playerBattleShip[2]).classList.add("ship");
+    document.getElementById(playerBattleShip[3]).classList.add("ship");
     return playerBattleShip;
+
 }
+
+/////XXXXXXXXXXXXXXXXXXXXXX HERE 11:22
+
+const listenersToGrid = function()  {
+    const allCells = document.querySelectorAll('div')
+    for(let i = 21; i < allCells.length; i++) {
+        allCells[i].addEventListener('click', function(event){
+            allCells[i].classList.add("ship");                  // OK
+            cellClicked = event.target.id;                      //  OK
+            playerBattleShip.push(cellClicked);                 //OK == NEED THE PUSH LINE SO NOT THE PROBLEM
+            if (playerBattleShip.length >= 5){
+                return playerBattleShip;
+            } else {
+                // listenersToGrid();
+        };
+            console.log(playerBattleShip);
+            return playerBattleShip;
+            })   
+        }
+        console.log(playerBattleShip);
+        return playerBattleShip;
+
+    };
+
+/////XXXXXXXXXXXXXXXXXXXXXX HERE HERE 11:22
+
 
 
 
