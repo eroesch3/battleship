@@ -347,7 +347,7 @@ function playerTakeShot() {
 
 
 
-alert("Your BattleShip was already deployed, Commander.  Please see screen below and press 'Play Battleship' to play game")
+alert("Your Battleship is deployed, Commander. See screen below for position and press 'Play' to begin Battleship.")
 
 
 
