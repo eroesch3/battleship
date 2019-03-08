@@ -59,6 +59,7 @@ div {
   }
   
   .grid {
+    outline: 2px solid #F2FAFF;
     max-width: 1155px; 
     max-height: 715;
     text-align: center;
